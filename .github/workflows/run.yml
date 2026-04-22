@@ -33,7 +33,7 @@ jobs:
           
           git config user.email "github-actions[bot]@users.noreply.github.com"
           
-          git add predicted.csv
+          git add predicted_table.csv
           git commit -m "update predicted table" || echo "no changes"
           
           git pull --rebase origin main
