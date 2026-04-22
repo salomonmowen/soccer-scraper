@@ -37,7 +37,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
           
-          git add predicted-table.csv
+          git add predicted_table.csv
           
           git commit -m "update predicted table" || exit 0
           
