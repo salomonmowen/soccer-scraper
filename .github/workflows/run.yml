@@ -30,8 +30,11 @@ jobs:
 
       - name: Commit updated CSV
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add predicted_table.csv
-          git commit -m "update predicted table" || exit 0
-          git push
+          
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add predicted.csv
+          git commit -m "update predicted table" || echo "no changes"
+          
+          git pull --rebase origin main
+          git push origin main
