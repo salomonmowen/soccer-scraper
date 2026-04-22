@@ -37,7 +37,7 @@ def update_sheet(value):
     client = gspread.authorize(creds)
     sheet = client.open("YourSheetName").sheet1
 
-    sheet.update("A1", value)
+    sheet.update("B4", value)
 
 
 def main():
