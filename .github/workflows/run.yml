@@ -1,8 +1,5 @@
 name: Update predicted table
-
 on:
-  schedule:
-    - cron: "*/6 * * * *"
   workflow_dispatch:
 concurrency:
   group: scraper
@@ -12,7 +9,6 @@ permissions:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -32,11 +28,11 @@ jobs:
 
       - name: Commit updated CSV
         run: |
-          
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          
+          git stash
           git pull --rebase origin main
+          git stash pop
           git add predicted_table.csv
           git commit -m "update predicted table" || exit 0
           git push origin main
