@@ -8,7 +8,6 @@ concurrency:
   group: scraper
   cancel-in-progress: true
 permissions:
-
   contents: write
 jobs:
   scrape:
